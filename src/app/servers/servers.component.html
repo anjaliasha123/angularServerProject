@@ -1,0 +1,27 @@
+<input type="text" class="form-control" [(ngModel)]="inputValue" />
+<p>Input values is : {{ inputValue }}</p>
+<button
+  [disabled]="!allowServers"
+  class="btn btn-primary"
+  (click)="addServerButtonClick()"
+>
+  Add Servers
+</button>
+<hr />
+<p *ngIf="isServerAdded;else noServe">{{ alloServerMessage }}</p>
+<ng-template #noServe>
+  <p>
+    {{ noServerMsg }}
+  </p>
+</ng-template>
+
+<app-server *ngFor="let s of serversList"></app-server>
+
+<!-- 
+<div app-server></div>
+<div app-server></div>
+-->
+<!-- 
+<div class="app-server"></div>
+<div class="app-server"></div>
+-->
